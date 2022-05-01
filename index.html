@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="stylesheet2.css">
     <meta charset="utf-8">
     <title>Kintai | 佐藤花子</title>
   </head>
@@ -11,49 +11,74 @@
         <div class="header-logo">あるあるコーヒー東京店</div>
         <div class="header-list">
             <ul>
-                <li>a</li>
-                <li>b</li>
-                <li>c</li>
+                <li><a href="">基本情報編集</a></li>
+                <li><a href="">これまでの実績</a></li>
+                <li><a href="">ログアウト</a></li>
             </ul>
         </div>
     </div>
    
+  <br>
+
     <div class="main">
         <div class="mainheader">
-            <h3>あとで時計やる</h3>
+          <span id="main-today"></span>
+          <script type="text/javascript">
+          document.getElementById("main-today").innerHTML = getToday();
+          function getToday() {
+            var now = new Date();
+            var year = now.getFullYear();
+            var mon = now.getMonth()+1;
+            var day = now.getDate();
+            var you = now.getDay();
+            var youbi = new Array("日","月","火","水","木","金","土");
+            var s = year + "年" + mon + "月" + day + "日 (" + youbi[you] + ")";
+            return s;
+          }
+          </script>
+          <span id="main-clock"></span>
+
+          <script type="text/javascript">
+          timerID = setInterval('clock()',1000);
+          function clock() {
+            document.getElementById("main-clock").innerHTML = getNow();
+          }
+          
+          function getNow() {
+            var now = new Date();
+            var hour = now.getHours();
+            var min = now.getMinutes();
+            var sec = now.getSeconds();
+            var s = hour + "時" + min + "分" + sec + "秒"; 
+            return s;
+          }
+          </script>
+
             <div class="main-name">
             <ul>
-                <li>あるあるコーヒー東京店</li>
-                <li>社員番号:XXXXXX</li>
-                <li>佐藤花子</li>
+                <li><p1>あるあるコーヒー東京店</p1></li>
+                <li><p2>社員番号:XXXXXX</p2></li>
+                <li><p3>名前が表示される</p3></li>
             </ul>
         </div>
+
+        <br>
 
         <div class="contents">
-            
-            <div class="contents-item">
-              <img src="https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/html/study/html.svg"/>
-            </div>
-            <div class="contents-item">
-              <img src="https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/html/study/php.svg"/>
-            </div>
-            <div class="contents-item">
-              <img src="https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/html/study/ruby.svg"/>
-            </div>
-            <div class="contents-item">
-              <img src="https://github.com/nitonanae/kintai/blob/67c2eb01133cfe277e968f6cc7f0254737b265a0/taikin.jpg"/>
-            </div>
-    
-        <div class="mainmenu">
-            <ul>
-                <li>基本情報</li>
-                <li>以前の実績を見る</li>
-                <li>カレンダー</li>
-            </ul>
-        </div>
-    </div>
+          <div class="contents-button">
+            <input type="button" style="width: 200px; background-color: rgb(116, 170, 195); padding: 10px; font-size: 30px;" value="出勤"  onClick="alert('打刻されました')">
+            <input type="button" style="width: 200px; background-color: rgb(195, 182, 116); padding: 10px; font-size: 30px;"value="休憩入"  onClick="alert('打刻されました')">
+            <input type="button" style="width: 200px; background-color: rgb(195, 171, 116); padding: 10px; font-size: 30px;"value="休憩出" onClick="alert('打刻されました')">
+            <input type="button" style="width: 200px; background-color: rgb(195, 116, 116); padding: 10px; font-size: 30px;"value="退勤"  onClick="alert('打刻されました')" >
+          </div>
 
-   
+        <div class="contact-form">
+          <h3 class="section-title">連絡欄</h3>
+            <textarea></textarea>
+            <input class="contact-submit" type="submit" value="送信">
+        </div>
+     
+    </div>
 
     <div class="footer">
       <div class="footer-logo">Kintai</div>
